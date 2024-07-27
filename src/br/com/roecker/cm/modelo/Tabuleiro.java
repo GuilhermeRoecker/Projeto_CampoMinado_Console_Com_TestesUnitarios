@@ -12,7 +12,7 @@ public class Tabuleiro {
     private int colunas;
     private int minas;
 
-    private final List<Campo> campos = new ArrayList<>();
+     final List<Campo> campos = new ArrayList<>();
 
     public Tabuleiro(int linhas, int colunas, int minas) {
         this.linhas = linhas;
@@ -27,7 +27,8 @@ public class Tabuleiro {
     public void abrir(int linha, int coluna){
         try {
             campos.parallelStream()
-            .filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
+            .filter(c -> c.getLinha() == linha &&
+             c.getColuna() == coluna)
             .findFirst()
             .ifPresent(c -> c.abrir());
         } catch (ExplosaoException e) {
